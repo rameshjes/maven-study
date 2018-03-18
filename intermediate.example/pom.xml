@@ -1,0 +1,55 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.maven</groupId>
+  <artifactId>intermediate.example</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  
+  <dependencies>
+  <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
+  <!-- We can also use exclusion tag with dependencies group id and artifact id
+  			 to exclude some transitive dependencies -->
+	<dependency>
+	    <groupId>org.hibernate</groupId>
+	    <artifactId>hibernate-core</artifactId>
+	    <version>5.3.0.CR1</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/junit/junit -->
+	<!--  scope tag is used to specify during which cycle, this dependency should be 
+	available, we only need junit during test, therefore its scope is defined as test
+	Furthermore, since it is available for test case, therefore if we use junit in 
+	src/main/java it will give error 
+	Other possible tags in scope are: compile, import, provided, runtime-->
+	<dependency>
+	    <groupId>junit</groupId>
+	    <artifactId>junit</artifactId>
+	    <version>4.12</version>
+	    <scope></scope>
+	</dependency>
+	
+  </dependencies>
+  
+  <build>
+  	<!-- Build plugins will be executed during the build and then, 
+  	they should be configured in the <build/> element. -->
+  	<plugins>
+  		<plugin>
+  			<!-- This is maven compiler plugin used to compile the maven code -->
+  			<groupId>org.apache.maven.plugins</groupId>
+  			<artifactId>maven-compiler-plugin</artifactId>
+  			<version>3.2</version>
+  			<configuration>
+  				<verbose>true</verbose>
+  				<!-- java version is 1.8 -->
+  				<source>1.8</source>
+  				<target>1.8</target>
+  				<showWarnings>true</showWarnings>
+  			</configuration>
+  			
+  		
+  		</plugin>
+  	
+  	</plugins>
+ 
+  </build>
+</project>
